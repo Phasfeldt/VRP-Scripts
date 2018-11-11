@@ -3,6 +3,14 @@ Script can be edited versions of current scripts existing, if so, credits will b
 
 **DISCLAIMER:** Scripts made by me or the developers at ByHyperion, will **not** have full core functionalities, as this would make our own private coding irrelevant for staying unique.  
   
+  
+**VRP_Holdup and VRP_Robbery**:
+- Will be translated to have VRP tunnel and proxy-calls, instead of register events.  
+  
+**VRP_detector and VRP_basjeumping**:
+- Both scripts uses VRP tunnel and proxy-calls. - VRP_Detector is missing a mechanism to call the cops to the area, so you have to code this yourself, the script also comes with a debugging circle, to see the area of detection. Set `debugging = 0` to  `debugging = 1` in client.lua, to debug the area. 
+
+
  ```
 VRP-Scripts
 Copyright (C) 2018 Patrick Sørensen
