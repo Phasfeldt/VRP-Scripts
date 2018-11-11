@@ -12,7 +12,7 @@ Script can be edited versions of current scripts existing, if so, credits will b
 - Both scripts uses VRP tunnel and proxy-calls. - VRP_Detector is missing a mechanism to call the cops to the area, so you have to code this yourself, the script also comes with a debugging circle, to see the area of detection. Set `debugging = 0` to  `debugging = 1` in [client.lua](https://github.com/Phasfeldt/VRP-Scripts/blob/master/%5BVRP%5D/vrp_detector/client.lua#L8), to debug the area. 
   
   
-  Feel free to further improve on the scripts, but if you do so, please make a fork and create a pull-request with the changes.
+Feel free to further improve on the scripts, but if you do so, please make a fork and create a pull-request with the changes.
  ```
 VRP-Scripts
 Copyright (C) 2018 Patrick Sørensen
