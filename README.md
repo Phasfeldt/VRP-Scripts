@@ -6,6 +6,7 @@ Script can be edited versions of current scripts existing, if so, credits will b
   
 **VRP_Holdup and VRP_Robbery**:
 - Will be translated to have VRP tunnel and proxy-calls, instead of register events.  
+- Features color-changing circle at the robbery-starting point, depending on if the sufficient amount of cops is online.
   
 **VRP_detector and VRP_basjeumping**:
 - Both scripts uses VRP tunnel and proxy-calls. - VRP_Detector is missing a mechanism to call the cops to the area, so you have to code this yourself, the script also comes with a debugging circle, to see the area of detection. Set `debugging = 0` to  `debugging = 1` in [client.lua](https://github.com/Phasfeldt/VRP-Scripts/blob/master/%5BVRP%5D/vrp_detector/client.lua#L8), to debug the area. 
