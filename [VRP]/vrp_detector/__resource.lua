@@ -1,7 +1,7 @@
-resource_manifest '44febabe-d386-4d18-afbe-5e627f4af93'
+
+description "vrp_detector"
 
 dependency "vrp"
-description "vrp_detector"
 
 client_scripts{ 
   "lib/Tunnel.lua",

@@ -1,10 +1,3 @@
-vRPdt = {}
-Tunnel.bindInterface("vrp_detector",vRPdt)
-Proxy.addInterface("vrp_detector",vRPdt)
-DTserver = Tunnel.getInterface("vrp_detector","vrp_detector")
-vRPserver = Tunnel.getInterface("vRP","vrp_detector")
-vRP = Proxy.getInterface("vRP")
-
 debugging = 0
 
 detector = {
@@ -119,7 +112,7 @@ weapons = {
 	"WEAPON_PIPEBOMB",
 	"WEAPON_POOLCUE",
 	"WEAPON_WRENCH"
-}
+} --Full list of weapons that the code checks for.
 
 Citizen.CreateThread(function ()
 	while true do
@@ -133,29 +126,30 @@ Citizen.CreateThread(function ()
 			end
 			DrawMarker(27, detectors[1], detectors[2], detectors[3], 0, 0, 0, 0, 0, 0, 5.0, 5.0, 2.0, 0, 157, 0, alpha, 0, 0, 2, 0, 0, 0, 0)
 			if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), detectors[1], detectors[2], detectors[3], true ) < 1.5 then
-				DTserver.check()
+				TriggerServerEvent('checkthis')
 			end
 		end
 	end
 end)
 
-function vRPdt.fejl(player)
-	vRPdt.kontroller()
-end
 
-paused = false
-function vRPdt.kontroller()
+RegisterNetEvent("runthat")
+AddEventHandler("runthat", function()
+	checkingthis() 
+end)
+
+function checkingthis()
+	local paused = false
 	local player = GetPlayerPed(-1)
     local playerCoords = GetEntityCoords(player)
+
 	for i=1,#weapons, 1 do
 	local weaponHash = GetHashKey(weapons[i])
 	  if HasPedGotWeapon(player, weaponHash, false) and not paused then
 	  	paused = true
-	  	TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "detector", 0.3)
-		-- Indsæt alarmcentral-trigger
-		-- Eksempel herunder:
-		-- TriggerServerEvent('butiksalarm', playerCoords.x, playerCoords.y, playerCoords.z, "Personalet har udløst en alarm, der er set en mand med våben på stedet.")
-	  	reset()
+	  	TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "detector", 0.3) --Plays the sound for the person, and people in the radius of 10 meters, if a weapons i detected.
+	  	--[[Need to code something here, to trigger a message only for cops.]]--
+	  	reset() --Resets the timer.
 	  	break
 	  end
 	end
